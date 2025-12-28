@@ -1,7 +1,7 @@
 # JavaScript Intermediário – Hub Central
 
 Este documento organiza os conceitos que levam você do básico para a construção de aplicações reais. Aqui você aprende a manipular dados de forma eficiente e a lidar com o tempo (assincronismo).
-**[Voltar para o índice](../aulas/README.md)**
+**[Voltar para o índice](../README.md)**
 
 ---
 

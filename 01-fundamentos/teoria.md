@@ -1,7 +1,7 @@
 # JavaScript Fundamentals – Guia Principal
 
 Este documento funciona como um centro de navegação para os fundamentos do JavaScript. Aqui você encontrará comparações rápidas e links para o detalhamento teórico de cada assunto.
-**[Voltar para o índice](../aulas/README.md)**
+**[Voltar para o índice](../README.md)**
 
 ---
 

@@ -1,6 +1,7 @@
 # Variáveis e Escopo no JavaScript
 
 Entender como as variáveis funcionam é o passo mais importante para dominar o JavaScript. Este arquivo detalha os três tipos de declaração e as regras de escopo que regem a linguagem.
+**[Voltar para o teoria de fundamentos](./teoria.md)**
 
 ---
 

@@ -1,7 +1,7 @@
 # JavaScript Avançado – Hub Central
 
 Este nível é focado na construção de sistemas escaláveis, performáticos e com qualidade profissional. Aqui os conceitos de arquitetura e padrões de projeto se encontram com a otimização técnica.
-**[Voltar para o índice](../aulas/README.md)**
+**[Voltar para o índice](../README.md)**
 
 ---
 
