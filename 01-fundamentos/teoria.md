@@ -6,42 +6,42 @@ Este documento funciona como um centro de navegação para os fundamentos do Jav
 
 ## 1. Variáveis e Escopo
 
-👉 **[Acesse aqui: VARIAVEIS.md](file:///home/antonio/JavaSrcipt/aulas/01-fundamentos/VARIAVEIS.md)**
+👉 **[Acesse aqui: VARIAVEIS.md](./VARIAVEIS.md)**
 (Entenda as diferenças entre `var`, `let`, `const`, Hoisting e Melhores Práticas).
 
 ---
 
 ## 2. Tipos de Dados e Memória
 
-👉 **[Acesse aqui: TIPOSDEDADOS.md](file:///home/antonio/JavaSrcipt/aulas/01-fundamentos/TIPOSDEDADOS.md)**
+👉 **[Acesse aqui: TIPOSDEDADOS.md](./TIPOSDEDADOS.md)**
 (Exploração profunda de Primitivos vs Referência, Null vs Undefined e Tipagem Dinâmica).
 
 ---
 
 ## 3. Operadores e Condicionais
 
-👉 **[Acesse aqui: CONDICIONAIS.md](file:///home/antonio/JavaSrcipt/aulas/01-fundamentos/CONDICIONAIS.md)**
+👉 **[Acesse aqui: CONDICIONAIS.md](./CONDICIONAIS.md)**
 (Aprenda sobre Operadores Aritméticos, Lógicos, `if/else`, `switch` e Ternário).
 
 ---
 
 ## 4. Loops e Iteração
 
-👉 **[Acesse aqui: LOOPS.md](file:///home/antonio/JavaSrcipt/aulas/01-fundamentos/LOOPS.md)**
+👉 **[Acesse aqui: LOOPS.md](./LOOPS.md)**
 (Teoria de `for`, `while`, `for...of`, `for...in` e controle de fluxo).
 
 ---
 
 ## 5. Funções
 
-👉 **[Acesse aqui: FUNCOES.md](file:///home/antonio/JavaSrcipt/aulas/01-fundamentos/FUNCOES.md)**
+👉 **[Acesse aqui: FUNCOES.md](./FUNCOES.md)**
 (Diferenças entre Declarações, Expressões, Arrow Functions e o comportamento do `this`).
 
 ---
 
 ## 6. Lógica de Curto-Circuito
 
-👉 **[Acesse aqui: CURTO.md](file:///home/antonio/JavaSrcipt/aulas/01-fundamentos/CURTO.md)**
+👉 **[Acesse aqui: CURTO.md](./CURTO.md)**
 (Entenda o poder do `&&`, `||` e `??` para códigos mais limpos).
 
 ---
