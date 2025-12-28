@@ -1,6 +1,7 @@
 # Performance e Otimização no JavaScript
 
 Escrever código que funciona é apenas o primeiro passo. No nível avançado, precisamos garantir que o código seja **rápido**, use pouca memória e proporcione uma experiência fluida para o usuário.
+**[Voltar para o teoria de avançado](./teoria.md)**
 
 ---
 

@@ -1,6 +1,7 @@
 # Programação Orientada a Objetos (POO) no JavaScript
 
 A POO é um paradigma que organiza o código em "Objetos" que combinam dados (propriedades) e comportamentos (métodos). No JavaScript moderno, usamos a sintaxe de `class`, que é uma forma mais amigável de trabalhar com protótipos.
+**[Voltar para o teoria de avançado](./teoria.md)**
 
 ---
 

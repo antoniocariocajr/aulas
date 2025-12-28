@@ -1,6 +1,7 @@
 # Manipulação de DOM e Eventos
 
 O DOM (Document Object Model) é a representação do HTML em forma de árvore de objetos que o JavaScript pode manipular para criar interfaces dinâmicas.
+**[Voltar para o teoria de intermediário](./teoria.md)**
 
 ---
 

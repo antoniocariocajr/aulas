@@ -1,6 +1,7 @@
 # Funções Avançadas e Conceitos de Escopo
 
 No nível intermediário, precisamos entender como o JavaScript lida com o ciclo de vida das variáveis e como as funções podem ser usadas como ferramentas poderosas.
+**[Voltar para o teoria de intermediário](./teoria.md)**
 
 ---
 

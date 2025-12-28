@@ -1,6 +1,7 @@
 # Operadores e Estruturas Condicionais no JavaScript
 
 Controlar o fluxo de execução é o que permite que seu código tome decisões. Para isso, utilizamos Operadores para comparar dados e Estruturas Condicionais para agir conforme os resultados.
+**[Voltar para o teoria de fundamentos](./teoria.md)**
 
 ---
 

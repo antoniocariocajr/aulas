@@ -1,6 +1,7 @@
 # Assincronismo: Promises, Async/Await e APIs
 
 O JavaScript é *single-threaded*, mas consegue lidar com operações demoradas (como chamadas de API ou leitura de arquivos) sem travar a interface. Isso é possível graças ao modelo assíncrono.
+**[Voltar para o teoria de intermediário](./teoria.md)**
 
 ---
 

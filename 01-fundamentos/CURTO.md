@@ -1,6 +1,7 @@
 # Curto-Circuito (Short-Circuit) e Lógica Lógica
 
 No JavaScript, os operadores lógicos `&&` (AND) e `||` (OR) fazem mais do que apenas retornar `true` ou `false`. Eles realizam o que chamamos de **Curto-Circuito**, retornando o valor de um dos operandos.
+**[Voltar para o teoria de fundamentos](./teoria.md)**
 
 ---
 

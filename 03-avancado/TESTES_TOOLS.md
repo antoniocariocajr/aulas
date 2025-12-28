@@ -1,6 +1,7 @@
 # Testes e Ferramentas Modernas de Desenvolvimento
 
 No desenvolvimento profissional, o código deve ser confiável e o ambiente de trabalho deve ser eficiente. Aqui exploramos como garantir a qualidade através de testes e como usar ferramentas de build modernas.
+**[Voltar para o teoria de avançado](./teoria.md)**
 
 ---
 

@@ -1,6 +1,7 @@
 # Funções no JavaScript: O Guia Completo
 
 As funções são os "blocos de construção" fundamentais do JavaScript. Elas permitem agrupar um conjunto de instruções para serem reutilizadas em diferentes partes do código.
+**[Voltar para o teoria de fundamentos](./teoria.md)**
 
 ---
 

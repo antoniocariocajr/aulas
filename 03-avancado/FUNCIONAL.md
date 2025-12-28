@@ -1,6 +1,7 @@
 # Programação Funcional (PF) no JavaScript
 
 A Programação Funcional foca em **"o quê fazer"** em vez de **"como fazer"**, tratando o código como uma série de transformações matemáticas. No JavaScript, ela é amplamente utilizada em bibliotecas como React e Redux.
+**[Voltar para o teoria de avançado](./teoria.md)**
 
 ---
 

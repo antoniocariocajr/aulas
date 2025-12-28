@@ -1,6 +1,7 @@
 # Tipos de Dados no JavaScript: O Guia Completo
 
 JavaScript é uma linguagem dinamicamente tipada, o que significa que as variáveis não têm um tipo fixo, mas os **valores** sim. Entender como esses tipos se comportam é essencial para evitar bugs de lógica.
+**[Voltar para o teoria de fundamentos](./teoria.md)**
 
 ---
 

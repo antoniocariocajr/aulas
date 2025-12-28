@@ -1,6 +1,7 @@
 # Loops e Iteração no JavaScript
 
 Loops são estruturas que permitem executar o mesmo bloco de código repetidas vezes até que uma condição seja atingida. No JavaScript, temos desde os clássicos `for` e `while` até iteradores modernos e mais legíveis.
+**[Voltar para o teoria de fundamentos](./teoria.md)**
 
 ---
 

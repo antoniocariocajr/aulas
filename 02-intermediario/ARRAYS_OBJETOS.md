@@ -1,6 +1,7 @@
 # Arrays e Objetos no JavaScript Intermediário
 
 Neste nível, deixamos de apenas declarar listas e objetos e passamos a manipulá-los de forma profissional, utilizando técnicas da programação funcional e as facilidades do ES6+.
+**[Voltar para o teoria de intermediário](./teoria.md)**
 
 ---
 
@@ -10,11 +11,11 @@ Estes métodos são essenciais para manipular dados sem mutar o array original.
 
 | Método     | Retorno        | Quando usar                          |
 |------------|----------------|--------------------------------------|
-| `map`      | **Novo Array** | Quando quer transformar cada item.    |
-| `filter`   | **Novo Array** | Quando quer remover itens da lista.   |
+| `map`      | **Novo Array** | Quando quer transformar cada item.|
+| `filter`   | **Novo Array** | Quando quer remover itens da lista.|
 | `reduce`   | **Único Valor**| Quando quer agregar (soma, média, etc).|
-| `find`     | **1 Elemento** | Quando quer achar o primeiro item.    |
-| `forEach`  | **undefined**  | Apenas para efeitos colaterais.       |
+| `find`     | **1 Elemento** | Quando quer achar o primeiro item.|
+| `forEach`  | **undefined**  | Apenas para efeitos colaterais.|
 
 ### Exemplo Prático
 

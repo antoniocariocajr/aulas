@@ -1,6 +1,7 @@
 # Modern JavaScript: ES6+ Features
 
 O "Modern JavaScript" se refere às funcionalidades introduzidas a partir do ES6 (2015) que tornaram a linguagem mais poderosa, legível e segura.
+**[Voltar para o teoria de intermediário](./teoria.md)**
 
 ---
 
