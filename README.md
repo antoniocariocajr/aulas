@@ -33,6 +33,12 @@ Padrões profissionais. Focado em escalabilidade e performance.
 
 Prática pura. Exercícios e desafios para consolidar o conhecimento de cada nível anterior.
 
+### 5. [05-frameworks-e-linguagens/](./05-frameworks-e-linguagens/)
+
+Frameworks e linguagens populares.
+
+- **Destaques:** Angular, React, Java, Android e Kotlin.
+
 ---
 
 ## 🛠️ Como Utilizar este Repositório
