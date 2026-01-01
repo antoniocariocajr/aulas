@@ -97,19 +97,39 @@ try {
 
 import { Observable } from 'rxjs';
 
-const promise = new Promise((resolve) => {
+const promise = new Promise<string>((resolve) => {
   setTimeout(() => resolve("Promise resolvida!"), 1000);
 });
 
 async function executarAsync() {
   const resultado = await promise;
-  log(resultado as string);
+  log(resultado);
 }
 
-const observable = new Observable(subscriber => {
+const observable = new Observable<string>(subscriber => {
   subscriber.next('Observable emitiu!');
   subscriber.complete();
 });
 
 executarAsync();
 observable.subscribe(valor => log(valor));
+
+// =====================================================================
+// == 06: Estruturas de Dados Exemplos
+// =====================================================================
+
+// Array
+const frutas: string[] = ["Maçã", "Banana", "Laranja"];
+frutas.push("Manga");
+log("Array de frutas: " + frutas.join(", "));
+
+// Set
+const numerosUnicos = new Set<number>([1, 2, 3, 2, 1]);
+numerosUnicos.add(4);
+log("Set de números únicos: " + Array.from(numerosUnicos).join(", "));
+
+// Map
+const capitais = new Map<string, string>();
+capitais.set("Brasil", "Brasília");
+capitais.set("Portugal", "Lisboa");
+log("Capital do Brasil: " + capitais.get("Brasil"));
