@@ -1,27 +1,31 @@
-# **Angular and TypeScript Study Guide**
+# **Guia de Estudos de Angular e TypeScript**
 
-This study guide provides a comprehensive overview of the core concepts of TypeScript and how they are applied in Angular.
+Este guia de estudos oferece uma visão abrangente dos conceitos essenciais do TypeScript e como eles são aplicados no Angular.
 
 ---
 
-## 📂 **Table of Contents**
+## 📂 **Índice**
 
-### 1. [TypeScript Fundamentals](./01_TYPESCRIPT_FUNDAMENTALS.md)
+### 1. [Fundamentos do TypeScript](./01_FUNDAMENTOS_DO_TYPESCRIPT.md)
 
-An introduction to the basic types and features of TypeScript, the language of Angular.
+Uma introdução aos tipos e recursos básicos do TypeScript, a linguagem do Angular.
 
-### 2. [Classes and Interfaces](./02_CLASSES_AND_INTERFACES.md)
+### 2. [Classes e Interfaces](./02_CLASSES_E_INTERFACES.md)
 
-Learn how to use classes and interfaces to build robust and type-safe applications.
+Aprenda a usar classes e interfaces para construir aplicações robustas e com segurança de tipos.
 
-### 3. [Object-Oriented Programming (OOP) in TypeScript](./03_OOP_IN_TYPESCRIPT.md)
+### 3. [Programação Orientada a Objetos (POO) em TypeScript](./03_POO_EM_TYPESCRIPT.md)
 
-Explore the core principles of OOP—encapsulation, inheritance, polymorphism, and abstraction—in the context of TypeScript.
+Explore os princípios fundamentais da POO — encapsulamento, herança, polimorfismo e abstração — no contexto do TypeScript.
 
-### 4. [Error Handling](./04_ERROR_HANDLING.md)
+### 4. [Tratamento de Erros](./04_TRATAMENTO_DE_ERROS.md)
 
-Understand how to handle errors and exceptions in TypeScript to build resilient applications.
+Entenda como lidar com erros e exceções no TypeScript para construir aplicações resilientes.
 
-### 5. [Asynchronous Programming](./05_ASYNCHRONOUS_PROGRAMMING.md)
+### 5. [Programação Assíncrona](./05_PROGRAMACAO_ASSINCRONA.md)
 
-Learn about asynchronous programming with Promises, async/await, and Observables (RxJS), which are essential for modern web development.
+Aprenda sobre programação assíncrona com Promises, async/await e Observables (RxJS), que são essenciais para o desenvolvimento web moderno.
+
+### 6. [Estruturas de Dados](./06_ESTRUTURAS_DE_DADOS.md)
+
+Uma visão geral das estruturas de dados essenciais, como Arrays, Sets e Maps.

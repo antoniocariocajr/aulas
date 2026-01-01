@@ -1,8 +1,8 @@
-// a simple "Hello, World!" component in React
+// um componente simples "Olá, Mundo!" em React
 import React from 'react';
 
-function HelloWorld() {
-  return <h1>Hello, World!</h1>;
+function OlaMundo() {
+  return <h1>Olá, Mundo!</h1>;
 }
 
-export default HelloWorld;
+export default OlaMundo;

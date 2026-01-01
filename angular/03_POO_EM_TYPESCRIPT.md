@@ -1,10 +1,10 @@
-# **Object-Oriented Programming (OOP) in TypeScript**
+# **Programação Orientada a Objetos (POO) em TypeScript**
 
-TypeScript is an object-oriented language that supports the core principles of OOP: encapsulation, inheritance, polymorphism, and abstraction.
+O TypeScript é uma linguagem orientada a objetos que suporta os princípios fundamentais da POO: encapsulamento, herança, polimorfismo e abstração.
 
-## **Encapsulation**
+## **Encapsulamento**
 
-Encapsulation is the bundling of data (properties) and methods that operate on that data into a single unit (a class). This example mirrors the `ContaBancaria` class from the Java guide.
+Encapsulamento é o agrupamento de dados (propriedades) e métodos que operam nesses dados em uma única unidade (uma classe). Este exemplo espelha a classe `ContaBancaria` do guia de Java.
 
 ```typescript
 class ContaBancaria {
@@ -26,9 +26,9 @@ class ContaBancaria {
 }
 ```
 
-## **Inheritance**
+## **Herança**
 
-Inheritance is a mechanism where a new class inherits properties and methods from an existing class. This example mirrors the `Animal` and `Cachorro` classes from the Java guide.
+Herança é um mecanismo onde uma nova classe herda propriedades e métodos de uma classe existente. Este exemplo espelha as classes `Animal` e `Cachorro` do guia de Java.
 
 ```typescript
 class Animal {
@@ -45,14 +45,14 @@ class Animal {
 
 class Cachorro extends Animal {
   constructor(nome: string) {
-    super(nome); // Call the constructor of the base class
+    super(nome); // Chama o construtor da classe base
   }
 
   public latir(): void {
     console.log("Au au!");
   }
 
-  // Method Overriding
+  // Sobrescrita de Método
   public comer(): void {
     console.log(`${this.nome} está comendo ração de cachorro.`);
   }
@@ -63,9 +63,9 @@ cachorro.latir();
 cachorro.comer();
 ```
 
-## **Polymorphism**
+## **Polimorfismo**
 
-Polymorphism allows objects of different classes to be treated as objects of a common superclass.
+Polimorfismo permite que objetos de diferentes classes sejam tratados como objetos de uma superclasse comum.
 
 ```typescript
 class Gato extends Animal {
@@ -77,13 +77,13 @@ class Gato extends Animal {
 const animais: Animal[] = [new Cachorro("Rex"), new Gato("Mimi")];
 
 animais.forEach(animal => {
-  animal.comer(); // Each animal eats differently
+  animal.comer(); // Cada animal come de forma diferente
 });
 ```
 
-## **Abstraction**
+## **Abstração**
 
-Abstraction is the concept of hiding complex implementation details. This is often achieved with abstract classes. This example mirrors the `FormaGeometrica` class from the Java guide.
+Abstração é o conceito de esconder detalhes complexos de implementação. Isso é frequentemente alcançado com classes abstratas. Este exemplo espelha a classe `FormaGeometrica` do guia de Java.
 
 ```typescript
 abstract class FormaGeometrica {
