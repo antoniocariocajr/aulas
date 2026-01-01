@@ -1,13 +1,13 @@
 # ⚛️ Componentes: Os Blocos de Construção do React
 
-No React, um **componente** é o "molde" para uma parte da interface do usuário. É um bloco de código autocontido e reutilizável que define como uma parte da UI deve parecer e se comportar. Este é o equivalente direto de uma **classe** na Programação Orientada a Objetos.
+Em React, um **componente** é o "molde" para uma parte da interface do usuário. É um bloco de código autocontido e reutilizável que define como uma parte da UI deve parecer e se comportar. Este é o equivalente direto de uma **classe** na Programação Orientada a Objetos.
 
 Se uma aplicação fosse uma casa feita de blocos de Lego, cada bloco individual seria um componente.
 
 ## Estrutura de um Componente React
 
 Um componente React moderno é tipicamente uma função JavaScript. Ele é composto por:
-1.  **Props**: Entradas para o componente, semelhantes a argumentos de construtor.
+1.  **Props**: Entradas para o componente, semelhantes aos argumentos de um construtor.
 2.  **State**: Os dados internos do componente, como atributos ou variáveis de instância.
 3.  **Lógica**: Funções e cálculos que determinam o comportamento do componente.
 4.  **JSX**: O "valor de retorno", uma descrição da UI que o componente irá renderizar.
@@ -59,7 +59,7 @@ Dentro de `PerfilDeUsuario`, `nomeInicial` é "Alice" e `idadeInicial` é 30.
 
 ## **State**
 
-**State** (estado) são os dados gerenciados *dentro* do componente. Ele representa informações que podem mudar ao longo do tempo, geralmente em resposta a ações do usuário. Quando o estado muda, o React automaticamente renderiza novamente o componente.
+**State** são dados gerenciados *dentro* do componente. Ele representa informações que podem mudar ao longo do tempo, geralmente em resposta a ações do usuário. Quando o estado muda, o React automaticamente renderiza o componente novamente.
 
 -   **Analogia**: O estado é como as variáveis de instância ou atributos de um objeto. Cada instância tem seu próprio estado.
 
@@ -95,4 +95,4 @@ function App() {
   );
 }
 ```
-Se você clicar no botão "Fazer Aniversário" para o perfil de Alice, apenas a idade dela aumentará. O perfil de Bob permanece inalterado porque são instâncias separadas com seu próprio estado privado.
+Se você clicar no botão "Fazer Aniversário" para o perfil de Alice, apenas a idade dela aumentará. O perfil de Bob permanece inalterado porque eles são instâncias separadas com seu próprio estado privado.

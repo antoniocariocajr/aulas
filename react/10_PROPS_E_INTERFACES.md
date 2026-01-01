@@ -1,6 +1,6 @@
-# 📦 Props: O Contrato de Comunicação Entre Componentes
+# 📦 Props e Interfaces: O Contrato Entre Componentes
 
-Em Java, uma `interface` define um contrato que uma classe deve seguir. Em React, as **props** (abreviação de "properties") definem o contrato de comunicação entre um componente pai e um componente filho. O pai passa dados para o filho através das props, e o filho os recebe como um objeto.
+Em React, as **props** (abreviação de "propriedades") definem o contrato de comunicação entre um componente pai e um filho. Elas são a maneira como os dados fluem de cima para baixo na árvore de componentes.
 
 > **Definição**: Props são um objeto que contém todos os dados e funções que um componente pai passa para um componente filho. Elas são **somente leitura** (read-only) para o filho.
 
@@ -12,47 +12,47 @@ O componente pai passa props como se fossem atributos de uma tag HTML. O compone
 
 **Pai (App.jsx):**
 ```jsx
-import UserCard from './UserCard';
+import CartaoDeUsuario from './CartaoDeUsuario';
 
 function App() {
   return (
     <div>
       <h1>Minha Aplicação</h1>
-      <UserCard
-        name="Alice"
-        age={30}
-        isActive={true}
-        onSelect={() => alert('Usuário Alice selecionado!')}
+      <CartaoDeUsuario
+        nome="Alice"
+        idade={30}
+        estaAtivo={true}
+        aoSelecionar={() => alert('Usuário Alice selecionado!')}
       />
     </div>
   );
 }
 ```
 
-**Filho (UserCard.jsx):**
+**Filho (CartaoDeUsuario.jsx):**
 ```jsx
 // Recebendo o objeto 'props' e acessando suas propriedades
-function UserCard(props) {
+function CartaoDeUsuario(props) {
   return (
     <div
-      className={props.isActive ? 'card active' : 'card'}
-      onClick={props.onSelect}
+      className={props.estaAtivo ? 'card active' : 'card'}
+      onClick={props.aoSelecionar}
     >
-      <h2>{props.name}</h2>
-      <p>Idade: {props.age}</p>
+      <h2>{props.nome}</h2>
+      <p>Idade: {props.idade}</p>
     </div>
   );
 }
 
 // É comum desestruturar (destructure) as props para um código mais limpo
-function UserCard({ name, age, isActive, onSelect }) {
+function CartaoDeUsuario({ nome, idade, estaAtivo, aoSelecionar }) {
   return (
     <div
-      className={isActive ? 'card active' : 'card'}
-      onClick={onSelect}
+      className={estaAtivo ? 'card active' : 'card'}
+      onClick={aoSelecionar}
     >
-      <h2>{name}</h2>
-      <p>Idade: {age}</p>
+      <h2>{nome}</h2>
+      <p>Idade: {idade}</p>
     </div>
   );
 }
@@ -70,81 +70,72 @@ Para garantir que um componente receba as props corretas em desenvolvimento, pod
 ```jsx
 import PropTypes from 'prop-types';
 
-function UserCard({ name, age, isActive, onSelect }) {
+function CartaoDeUsuario({ nome, idade, estaAtivo, aoSelecionar }) {
   // ... (código JSX do componente)
 }
 
 // Definindo o "contrato" das props
-UserCard.propTypes = {
-  // `name` deve ser uma string e é obrigatória
-  name: PropTypes.string.isRequired,
+CartaoDeUsuario.propTypes = {
+  // `nome` deve ser uma string e é obrigatória
+  nome: PropTypes.string.isRequired,
 
-  // `age` deve ser um número
-  age: PropTypes.number,
+  // `idade` deve ser um número
+  idade: PropTypes.number,
 
-  // `isActive` deve ser um booleano
-  isActive: PropTypes.bool,
+  // `estaAtivo` deve ser um booleano
+  estaAtivo: PropTypes.bool,
 
-  // `onSelect` deve ser uma função
-  onSelect: PropTypes.func.isRequired,
+  // `aoSelecionar` deve ser uma função
+  aoSelecionar: PropTypes.func.isRequired,
 };
 
-// Definindo valores padrão (similar a métodos default em interfaces)
-UserCard.defaultProps = {
-  age: 99,
-  isActive: false,
+// Definindo valores padrão
+CartaoDeUsuario.defaultProps = {
+  idade: 99,
+  estaAtivo: false,
 };
 ```
-Se o componente `App` tentasse renderizar `<UserCard name={123} />`, o React mostraria um aviso no console, pois `name` deveria ser uma `string`.
+Se o componente `App` tentasse renderizar `<CartaoDeUsuario nome={123} />`, o React mostraria um aviso no console, pois `nome` deveria ser uma `string`.
 
 ---
 
 ## **3. O Contrato Estático com TypeScript**
 
-TypeScript leva o conceito de contrato a outro nível, fornecendo verificação estática (antes mesmo de o código rodar). Esta é a analogia mais direta a uma `interface` em Java.
+TypeScript leva o conceito de contrato a outro nível, fornecendo verificação estática (antes mesmo de o código rodar).
 
 Usando uma `interface` ou `type` do TypeScript, você define a forma exata do objeto de props.
 
-**Exemplo com TypeScript (UserCard.tsx):**
+**Exemplo com TypeScript (CartaoDeUsuario.tsx):**
 ```tsx
 import React from 'react';
 
 // 1. Definindo a interface (o contrato) para as props
 interface UserCardProps {
-  name: string;
-  age?: number; // '?' torna a prop opcional
-  isActive?: boolean;
-  onSelect: () => void; // Uma função que não recebe argumentos e não retorna nada
+  nome: string;
+  idade?: number; // '?' torna a prop opcional
+  estaAtivo?: boolean;
+  aoSelecionar: () => void; // Uma função que não recebe argumentos e não retorna nada
 }
 
 // 2. Usando a interface para tipar as props do componente
-const UserCard: React.FC<UserCardProps> = ({ name, age = 99, isActive = false, onSelect }) => {
+const CartaoDeUsuario: React.FC<UserCardProps> = ({ nome, idade = 99, estaAtivo = false, aoSelecionar }) => {
   return (
     <div
-      className={isActive ? 'card active' : 'card'}
-      onClick={onSelect}
+      className={estaAtivo ? 'card active' : 'card'}
+      onClick={aoSelecionar}
     >
-      <h2>{name}</h2>
-      <p>Idade: {age}</p>
+      <h2>{nome}</h2>
+      <p>Idade: {idade}</p>
     </div>
   );
 };
 
-export default UserCard;
+export default CartaoDeUsuario;
 ```
-Se você tentar usar `<UserCard />` sem a prop `name` ou com o tipo errado, o seu editor de código (e o compilador TypeScript) irá apontar um erro imediatamente.
+Se você tentar usar `<CartaoDeUsuario />` sem a prop `nome` ou com o tipo errado, o seu editor de código (e o compilador TypeScript) irá apontar um erro imediatamente.
 
 ---
 
-## **Resumo Comparativo**
+## **Resumo**
 
-| Conceito | Java | React (com PropTypes) | React (com TypeScript) |
-| --- | --- | --- | --- |
-| **Definição** | `interface Veiculo { void ligar(); }` | `Component.propTypes = { ligar: PropTypes.func }` | `interface Props { ligar: () => void; }` |
-| **Implementação** | `class Carro implements Veiculo` | `<Componente ligar={...} />` | `const C: React.FC<Props> = ({ ligar }) => ...` |
-| **Verificação** | Compilador (estático) | Console do navegador (tempo de execução) | Editor/Compilador (estático) |
-| **Obrigatoriedade**| Compilador força a implementação | `isRequired` gera um aviso | O compilador gera um erro |
-
----
-
-> **Resumo**: Em React, **props** são o mecanismo para passar dados de pai para filho. Para garantir que essa comunicação ocorra corretamente, você define um "contrato" usando **PropTypes** (para verificação em tempo de execução) ou, idealmente, com **interfaces TypeScript** (para verificação estática), que é o paralelo mais próximo das interfaces em Java.
+> Em React, **props** são o mecanismo para passar dados de pai para filho. Para garantir que essa comunicação ocorra corretamente, você define um "contrato" usando **PropTypes** (para verificação em tempo de execução) ou, idealmente, com **interfaces TypeScript** (para verificação estática).

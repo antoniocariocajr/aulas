@@ -11,7 +11,7 @@ Embora o JavaScript tenha muitos operadores, alguns são fundamentais para escre
 
 ### **1. E Lógico (`&&`) para Renderização Condicional**
 
-Esta é a maneira mais comum de renderizar condicionalmente um componente ou elemento. Se a expressão à esquerda for "truthy" (verdadeira), a expressão à direita é renderizada. Se for "falsy" (falsa, como `false`, `0`, `null`, `undefined`, `''`), nada é renderizado.
+Esta é a maneira mais comum de renderizar condicionalmente um componente ou elemento. Se a expressão à esquerda for "truthy" (verdadeira), a expressão à direita é renderizada. Se for "falsy" (falsa) (ex: `false`, `0`, `null`, `undefined`, `''`), nada é renderizado.
 
 ```jsx
 function CaixaDeEntrada({ mensagensNaoLidas }) {
@@ -29,16 +29,16 @@ function CaixaDeEntrada({ mensagensNaoLidas }) {
 // Renderiza o h2 apenas se o array tiver itens.
 ```
 
-> **Aviso:** Tenha cuidado com `0`. A expressão `0 && <Componente />` irá renderizar um `0` na tela, o que geralmente não é o que você deseja.
+> **Aviso:** Tenha cuidado com `0`. A expressão `0 && <Component />` irá renderizar um `0` na tela, o que geralmente não é o que você deseja.
 
 ---
 
-### **2. Operador Ternário (`? :`) para Lógica `if-else` em Linha**
+### **2. Operador Ternário (`? :`) para Lógica `if-else` Inline**
 
 Quando você precisa de uma condição `if-else` dentro do seu JSX, o operador ternário é a ferramenta perfeita.
 
 ```jsx
-function StatusUsuario({ estaLogado }) {
+function StatusDoUsuario({ estaLogado }) {
   return (
     <div>
       {estaLogado ? <p>Bem-vindo de volta!</p> : <p>Por favor, faça o login.</p>}
@@ -54,27 +54,27 @@ function StatusUsuario({ estaLogado }) {
 Sempre use o operador de **Igualdade Estrita (`===`)**.
 
 - `===` (Igualdade Estrita): Retorna `true` apenas se ambos os operandos tiverem o mesmo tipo e o mesmo valor.
-- `==` (Igualdade Solta): Tenta converter os operandos para um tipo comum antes de comparar, o que pode levar a resultados inesperados.
+- `==` (Igualdade Frouxa): Tenta converter os operandos para um tipo comum antes de comparar, o que pode levar a resultados inesperados.
 
 ```javascript
 5 === 5    // true
 5 === '5'  // false (tipos diferentes)
 
 5 == 5     // true
-5 == '5'   // true (string '5' é convertida para o número 5) - EVITE ISSO!
+5 == '5'   // true (a string '5' é convertida para o número 5) - EVITE ISSO!
 ```
 
 ---
 
-### **4. Operador de Espalhamento (`...`)**
+### **4. Operador de Propagação (`...`)**
 
-O operador de espalhamento (spread) é crucial para trabalhar com o estado de forma **imutável**. Ele permite criar novas cópias de arrays e objetos.
+O operador de propagação é crucial para trabalhar com o estado de forma **imutável**. Ele permite que você crie novas cópias de arrays e objetos.
 
 **Para Arrays:**
 
 ```jsx
 const tarefasAntigas = ['Aprender React'];
-const novasTarefas = [...tarefasAntigas, 'Dominar o State']; // ['Aprender React', 'Dominar o State']
+const novasTarefas = [...tarefasAntigas, 'Dominar o Estado']; // ['Aprender React', 'Dominar o Estado']
 ```
 
 **Para Objetos:**
@@ -91,10 +91,10 @@ const usuarioAtualizado = { ...usuarioAntigo, nome: 'Alexis' }; // { id: 1, nome
 Acesse com segurança propriedades aninhadas de um objeto sem causar um erro se uma propriedade intermediária for `null` ou `undefined`.
 
 ```jsx
-// Sem o encadeamento opcional, isso travaria se 'usuario.perfil' fosse indefinido
+// Sem o encadeamento opcional, isso quebraria se 'usuario.perfil' for indefinido
 const rua = usuario.perfil.endereco.rua;
 
-// COM o encadeamento opcional, 'rua' será apenas 'undefined' se alguma parte estiver faltando
+// COM o encadeamento opcional, 'rua' será apenas 'undefined' se qualquer parte estiver faltando
 const rua = usuario?.perfil?.endereco?.rua;
 ```
 
@@ -104,7 +104,7 @@ const rua = usuario?.perfil?.endereco?.rua;
 
 Fornece um valor padrão para uma variável apenas se ela for `null` ou `undefined`. Ele ignora outros valores "falsy" como `0`, `''` ou `false`.
 
-```jsx
+```javascript
 // Usando || (OU Lógico)
 const quantidade = 0 || 1; // o resultado é 1, porque 0 é falsy. Isso geralmente é um bug.
 
@@ -117,11 +117,11 @@ const quantidade = 0 ?? 1; // o resultado é 0, porque 0 não é nulo nem indefi
 ### **Outros Operadores Comuns**
 
 - **Aritméticos:** `+`, `-`, `*`, `/`, `%` (usados para cálculos).
-- **Concatenação de Strings:** `+` (ou, preferencialmente, template literals: `` `Olá, ${nome}` ``).
+- **Concatenação de Strings:** `+` (ou preferencialmente literais de template: `` `Olá, ${nome}` ``).
 - **Atribuição:** `=`, `+=`, `-=` (usados para atualizar variáveis, embora menos comuns com os setters de estado do React).
 
 ---
 
 ## **Resumo**
 
-> Em React, domine os **operadores lógicos (`&&`, `? :`)** para renderização, o **operador de espalhamento (`...`)** para atualizações de estado, e operadores modernos de JS como **`?.`** e **`??`** para um código mais seguro e limpo. **Sempre prefira `===`** para comparações.
+> Em React, domine os **operadores lógicos (`&&`, `? :`)** para renderização, o **operador de propagação (`...`)** para atualizações de estado, e operadores modernos do JS como **`?.`** e **`??`** para um código mais seguro e limpo. **Sempre prefira `===`** para comparações.

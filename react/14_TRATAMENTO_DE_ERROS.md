@@ -1,6 +1,6 @@
 # 🚨 Tratamento de Erros em React (Error Handling)
 
-Em Java, o bloco `try-catch` é usado para capturar exceções e prevenir que o programa pare de funcionar. Em React, um erro de JavaScript durante a renderização de um componente pode quebrar toda a aplicação. Para lidar com isso de forma elegante, React oferece um mecanismo especial chamado **Error Boundaries**.
+Em React, um erro de JavaScript durante a renderização de um componente pode quebrar toda a aplicação. Para lidar com isso de forma elegante, o React oferece um mecanismo especial chamado **Error Boundaries**.
 
 > **Definição**: Um **Error Boundary** é um componente React que captura erros de JavaScript em qualquer lugar da sua árvore de componentes filhos, registra esses erros e exibe uma interface de fallback (UI alternativa).
 
@@ -10,21 +10,21 @@ Em Java, o bloco `try-catch` é usado para capturar exceções e prevenir que o 
 
 Considere este componente que lança um erro intencional:
 ```jsx
-function BuggyComponent() {
-  const [hasError, setHasError] = useState(false);
+function ComponenteComBug() {
+  const [temErro, setTemErro] = useState(false);
 
-  if (hasError) {
+  if (temErro) {
     throw new Error('Eu quebrei de propósito!');
   }
 
-  return <button onClick={() => setHasError(true)}>Clique para quebrar</button>;
+  return <button onClick={() => setTemErro(true)}>Clique para quebrar</button>;
 }
 
 function App() {
   return (
     <div>
       <h1>Minha Aplicação</h1>
-      <BuggyComponent />
+      <ComponenteComBug />
       <p>Outro conteúdo importante...</p>
     </div>
   );
@@ -47,30 +47,27 @@ import React, { Component } from 'react';
 class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
-    this.state = { hasError: false, error: null };
+    this.state = { temErro: false, erro: null };
   }
 
   // 1. Atualiza o estado para que a próxima renderização mostre a UI de fallback.
-  static getDerivedStateFromError(error) {
-    return { hasError: true, error: error };
+  static getDerivedStateFromError(erro) {
+    return { temErro: true, erro: erro };
   }
 
   // 2. Captura o erro e informações adicionais para logging.
-  componentDidCatch(error, errorInfo) {
+  componentDidCatch(erro, infoDoErro) {
     // Você pode enviar o erro para um serviço de monitoramento aqui
-    console.error("Erro capturado pelo Error Boundary:", error, errorInfo);
+    console.error("Erro capturado pelo Error Boundary:", erro, infoDoErro);
   }
 
   render() {
     // 3. Se houver um erro, renderiza a UI de fallback.
-    if (this.state.hasError) {
+    if (this.state.temErro) {
       return (
         <div>
           <h2>Algo deu errado.</h2>
           <p>Por favor, recarregue a página.</p>
-          {/* <details style={{ whiteSpace: 'pre-wrap' }}>
-            {this.state.error && this.state.error.toString()}
-          </details> */}
         </div>
       );
     }
@@ -91,40 +88,40 @@ Agora, você pode "envolver" partes da sua aplicação com o `ErrorBoundary`. Se
 
 ```jsx
 import ErrorBoundary from './ErrorBoundary';
-import BuggyComponent from './BuggyComponent';
+import ComponenteComBug from './ComponenteComBug';
 
 function App() {
   return (
     <div>
       <h1>Minha Aplicação</h1>
       <ErrorBoundary>
-        <BuggyComponent />
+        <ComponenteComBug />
       </ErrorBoundary>
-      <p>Este parágrafo NÃO irá desaparecer se o BuggyComponent quebrar.</p>
+      <p>Este parágrafo NÃO irá desaparecer se o ComponenteComBug quebrar.</p>
     </div>
   );
 }
 ```
-Com essa estrutura, apenas o `BuggyComponent` será substituído pela UI de fallback, e o resto da aplicação continuará funcionando.
+Com essa estrutura, apenas o `ComponenteComBug` será substituído pela UI de fallback, e o resto da aplicação continuará funcionando.
 
 ---
 
 ## **O que os Error Boundaries NÃO Capturam**
 
 Eles são como um `catch` para a renderização, mas não capturam erros em:
--   ** manipuladores de eventos** (Event Handlers): Use `try-catch` normal dentro deles.
--   **Código assíncrono** (ex: `setTimeout` ou `fetch` callbacks): Use `.catch()` ou `try-catch` com `async/await`.
--   **Renderização no lado do servidor** (Server Side Rendering).
+-   **Manipuladores de eventos**: Use `try-catch` normal dentro deles.
+-   **Código assíncrono** (ex: `setTimeout` ou callbacks de `fetch`): Use `.catch()` ou `try-catch` com `async/await`.
+-   **Renderização no lado do servidor**.
 -   **Erros lançados no próprio Error Boundary**.
 
-### **Exemplo: `try-catch` em um Event Handler**
+### **Exemplo: `try-catch` em um Manipulador de Eventos**
 ```jsx
 function handleClick() {
   try {
     // Lógica que pode falhar
     JSON.parse("{'json_invalido'}");
-  } catch (error) {
-    console.error("Erro no clique do botão:", error);
+  } catch (erro) {
+    console.error("Erro no clique do botão:", erro);
     // Você pode atualizar o estado para mostrar uma mensagem de erro na UI
   }
 }
@@ -137,9 +134,9 @@ function handleClick() {
 Para erros de API (como o `fetch`), a abordagem é usar a gestão de estado que já vimos:
 
 ```jsx
-function UserProfile({ userId }) {
-  const [user, setUser] = useState(null);
-  const [error, setError] = useState(null); // Estado para o erro
+function PerfilDeUsuario({ userId }) {
+  const [usuario, setUsuario] = useState(null);
+  const [erro, setErro] = useState(null); // Estado para o erro
 
   useEffect(() => {
     fetch(`https://api.example.com/users/${userId}`)
@@ -149,12 +146,12 @@ function UserProfile({ userId }) {
         }
         return response.json();
       })
-      .then(data => setUser(data))
-      .catch(err => setError(err)); // Captura o erro e o coloca no estado
+      .then(data => setUsuario(data))
+      .catch(err => setErro(err)); // Captura o erro e o coloca no estado
   }, [userId]);
 
-  if (error) {
-    return <div>Erro ao carregar o perfil: {error.message}</div>;
+  if (erro) {
+    return <div>Erro ao carregar o perfil: {erro.message}</div>;
   }
   // ...
 }
