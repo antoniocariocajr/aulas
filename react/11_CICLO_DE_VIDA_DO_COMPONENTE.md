@@ -33,7 +33,6 @@ useEffect(() => {
 
 Para executar uma lógica logo após o componente ser montado (inserido na tela pela primeira vez), forneça um **array de dependências vazio (`[]`)**.
 
--   **Análogo em POO**: Comportamento do **construtor** ou de um método de inicialização.
 -   **Análogo em Classes React**: `componentDidMount`.
 
 **Uso Comum**: Buscar dados iniciais.
@@ -41,22 +40,22 @@ Para executar uma lógica logo após o componente ser montado (inserido na tela 
 ```jsx
 import { useState, useEffect } from 'react';
 
-function UserProfile({ userId }) {
-  const [user, setUser] = useState(null);
+function PerfilDeUsuario({ userId }) {
+  const [usuario, setUsuario] = useState(null);
 
   useEffect(() => {
     // Esta função executa apenas uma vez, após a primeira renderização.
     console.log('Componente montado! Buscando dados...');
     fetch(`https://api.example.com/users/${userId}`)
       .then(response => response.json())
-      .then(data => setUser(data));
+      .then(data => setUsuario(data));
   }, []); // Array vazio = "execute apenas na montagem"
 
-  if (!user) {
-    return <div>Loading...</div>;
+  if (!usuario) {
+    return <div>Carregando...</div>;
   }
 
-  return <h1>{user.name}</h1>;
+  return <h1>{usuario.name}</h1>;
 }
 ```
 
@@ -66,21 +65,20 @@ function UserProfile({ userId }) {
 
 Para re-executar o efeito sempre que uma `prop` ou `state` específico mudar, coloque essa variável no **array de dependências**.
 
--   **Análogo em POO**: Métodos que respondem a mudanças de estado.
 -   **Análogo em Classes React**: `componentDidUpdate`.
 
 **Uso Comum**: Re-buscar dados quando um ID muda.
 
 ```jsx
-function UserProfile({ userId }) {
-  const [user, setUser] = useState(null);
+function PerfilDeUsuario({ userId }) {
+  const [usuario, setUsuario] = useState(null);
 
   useEffect(() => {
     // Este efeito executa na montagem E sempre que `userId` mudar.
     console.log(`Buscando dados para o usuário: ${userId}`);
     fetch(`https://api.example.com/users/${userId}`)
       .then(response => response.json())
-      .then(data => setUser(data));
+      .then(data => setUsuario(data));
   }, [userId]); // Dependência: `userId`
 
   // ...
@@ -93,7 +91,6 @@ function UserProfile({ userId }) {
 
 Se o seu efeito configurar algo que precisa ser "desfeito" (como um timer ou uma assinatura), você pode retornar uma **função de limpeza** de dentro do `useEffect`. O React executará essa função antes de o componente ser removido da tela.
 
--   **Análogo em POO**: Um método `close()` ou `dispose()` em um objeto.
 -   **Análogo em Classes React**: `componentWillUnmount`.
 
 **Uso Comum**: Limpar timers ou listeners.
@@ -101,24 +98,24 @@ Se o seu efeito configurar algo que precisa ser "desfeito" (como um timer ou uma
 ```jsx
 import { useState, useEffect } from 'react';
 
-function Timer() {
-  const [time, setTime] = useState(0);
+function Cronometro() {
+  const [tempo, setTempo] = useState(0);
 
   useEffect(() => {
     // Configura o efeito: inicia um intervalo.
     const intervalId = setInterval(() => {
-      setTime(t => t + 1);
+      setTempo(t => t + 1);
     }, 1000);
 
     // Retorna a função de limpeza.
     // Ela será chamada quando o componente for desmontado.
     return () => {
-      console.log('Limpando o timer!');
+      console.log('Limpando o cronômetro!');
       clearInterval(intervalId);
     };
-  }, []); // Array vazio, pois queremos que o timer seja configurado apenas uma vez.
+  }, []); // Array vazio, pois queremos que o cronômetro seja configurado apenas uma vez.
 
-  return <div>Timer: {time}s</div>;
+  return <div>Cronômetro: {tempo}s</div>;
 }
 ```
 
